@@ -59,5 +59,29 @@ guardarCliente = function(){
     cliente.egresos = egresos;
 
     clientes.push(cliente);
+    //mostrar en tabla
+     pintarClientes();
 
+}
+
+
+/// Pintar clientes
+
+pintarClientes = function(){
+    let contenido = "";
+    let cliente;
+
+    for (let i = 0; i < clientes.length; i++){
+        cliente = clientes[i];
+
+        contenido += "<tr>" +
+            "<td>" + cliente.cedula + "</td>" +
+            "<td>" + cliente.nombre + "</td>" +
+            "<td>" + cliente.apellido + "</td>" +
+            "<td>" + cliente.ingresos + "</td>" +
+            "<td>" + cliente.egresos + "</td>" +
+            "<td><button>Actualizar</button></td>" +
+            "</tr>";
+    }
+    document.getElementById("tablaClientes").innerHTML = contenido;
 }
