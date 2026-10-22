@@ -85,3 +85,19 @@ pintarClientes = function(){
     }
     document.getElementById("tablaClientes").innerHTML = contenido;
 }
+
+// buscar clientes
+
+buscarCliente = function(cedula){
+      let clienteEncontrado = null;
+
+      for (let i = 0; i < clientes.length; i++){
+        if (clientes[i].cedula == cedula){
+            clienteEncontrado = clientes[i];
+            break;
+        }
+     } 
+    return clienteEncontrado;
+
+
+}
