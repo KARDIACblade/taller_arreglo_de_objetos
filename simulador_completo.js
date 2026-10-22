@@ -24,4 +24,4 @@ ocultarSecciones = function(){
 mostrarSeccion = function(id){
     ocultarSecciones();
     document.getElementById(id).classList.add("activa");
-}
+}   
