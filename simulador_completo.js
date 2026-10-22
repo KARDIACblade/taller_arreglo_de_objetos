@@ -1,5 +1,6 @@
 
   let clientes = [];
+  
   let creditos = [];
 
   let tasaInteres = 15;
@@ -38,5 +39,25 @@ mostrarSeccion = function(id){
     } else {
         mostrarTexto("mensajeTasa","La tasa debe estar entre 10% y 20%");
     }
+
+}
+
+// guardar cliente
+
+guardarCliente = function(){
+    let cedula = recuperarTexto("cedula");
+    let nombre = recuperarTexto("nombre");
+    let apellido = recuperarTexto("apellido");
+    let ingresos = recuperarFloat("ingresos");
+    let egresos = recuperarFloat("egresos");
+
+    let cliente = {};
+    cliente.cedula = cedula;
+    cliente.nombre = nombre;
+    cliente.apellido = apellido;
+    cliente.ingresos = ingresos;
+    cliente.egresos = egresos;
+
+    clientes.push(cliente);
 
 }
