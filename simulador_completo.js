@@ -18,3 +18,10 @@ ocultarSecciones = function(){
     document.getElementById("parametros").classList.remove("activa");
     document.getElementById("clientes").classList.remove("activa");
 }
+
+//mostrar seccion(id)
+
+mostrarSeccion = function(id){
+    ocultarSecciones();
+    document.getElementById(id).classList.add("activa");
+}
