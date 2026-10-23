@@ -196,9 +196,19 @@ calcularCredito = function(){
 
     let aprobado = aprobarCredito(capacidadPago, cuotaMensual);
 
-    // Solo para verificar los valores 
-    console.log("Capacidad de pago:", capacidadPago);
-    console.log("Total a pagar:", totalPagar);
-    console.log("Cuota mensual:", cuotaMensual);
-    console.log("Aprobado:", aprobado);
+   
+  let textoResultado;
+    if (aprobado){
+        textoResultado = "APROBADO";
+    } else {
+        textoResultado = "RECHAZADO";
+    }
+
+    // Parte 5: mostrar en pantalla
+    document.getElementById("resultadoCredito").innerHTML =
+        "Capacidad de pago: " + capacidadPago.toFixed(2) + "<br>" +
+        "Total a pagar: " + totalPagar.toFixed(2) + "<br>" +
+        "Cuota mensual: " + cuotaMensual.toFixed(2) + "<br>" +
+        "RESULTADO: " + textoResultado;
+
 }
