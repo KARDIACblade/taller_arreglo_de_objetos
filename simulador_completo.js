@@ -80,7 +80,10 @@ pintarClientes = function(){
             "<td>" + cliente.apellido + "</td>" +
             "<td>" + cliente.ingresos + "</td>" +
             "<td>" + cliente.egresos + "</td>" +
-            "<td><button>Actualizar</button></td>" +
+
+            //"<td><button>Actualizar</button></td>" +
+            "<td><button onclick=\"seleccionarCliente('" + cliente.cedula + "')\">Actualizar</button></td>" +
+
             "</tr>";
     }
     document.getElementById("tablaClientes").innerHTML = contenido;
@@ -101,3 +104,20 @@ buscarCliente = function(cedula){
 
 
 }
+
+// seleccionar cliente
+seleccionarCliente = function(cedula){
+
+    let cliente = buscarCliente(cedula);
+
+    clienteSeleccionado = cliente;
+
+    mostrarTextoEnCaja("cedula", cliente.cedula);
+    mostrarTextoEnCaja("nombre", cliente.nombre);
+    mostrarTextoEnCaja("apellido", cliente.apellido);
+    mostrarTextoEnCaja("ingresos", cliente.ingresos);
+    mostrarTextoEnCaja("egresos", cliente.egresos);
+
+
+}
+
