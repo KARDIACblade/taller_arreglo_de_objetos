@@ -20,7 +20,7 @@ ocultarSecciones = function(){
     document.getElementById("clientes").classList.remove("activa");
 
     document.getElementById("credito").classList.remove("activa"); 
-    
+
 }
 
 //mostrar seccion(id)
@@ -142,4 +142,15 @@ limpiar = function(){
     mostrarTextoEnCaja("apellido", "");
     mostrarTextoEnCaja("ingresos", "");
     mostrarTextoEnCaja("egresos", "");
+}
+
+
+// buscar cliente credito
+buscarClienteCredito = function(){
+    let cedula = recuperarTexto("buscarCedulaCredito");
+    let cliente = buscarCliente(cedula);
+
+    if (cliente == null){
+    mostrarTexto("datosClienteCredito", "Cliente no encontrado");
+}
 }
