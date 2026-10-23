@@ -51,6 +51,10 @@ guardarCliente = function(){
     let ingresos = recuperarFloat("ingresos");
     let egresos = recuperarFloat("egresos");
 
+    let clienteExistente = buscarCliente(cedula); //
+    if (clienteExistente == null){                //
+
+
     let cliente = {};
     cliente.cedula = cedula;
     cliente.nombre = nombre;
@@ -58,7 +62,14 @@ guardarCliente = function(){
     cliente.ingresos = ingresos;
     cliente.egresos = egresos;
 
-    clientes.push(cliente);
+    
+    clientes.push(cliente);                        
+      } else {
+        clienteExistente.nombre = nombre;         //
+        clienteExistente.apellido = apellido;     //
+        clienteExistente.ingresos = ingresos;     //
+        clienteExistente.egresos = egresos;       //
+      }
     //mostrar en tabla
      pintarClientes();
 
@@ -121,3 +132,11 @@ seleccionarCliente = function(cedula){
 
 }
 
+// vaciar inputs
+limpiar = function(){
+    mostrarTextoEnCaja("cedula", "");
+    mostrarTextoEnCaja("nombre", "");
+    mostrarTextoEnCaja("apellido", "");
+    mostrarTextoEnCaja("ingresos", "");
+    mostrarTextoEnCaja("egresos", "");
+}
