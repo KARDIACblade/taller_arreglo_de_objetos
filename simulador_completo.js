@@ -152,5 +152,14 @@ buscarClienteCredito = function(){
 
     if (cliente == null){
     mostrarTexto("datosClienteCredito", "Cliente no encontrado");
+    
+    } else {
+        document.getElementById("datosClienteCredito").innerHTML =
+            "<h3>Datos del Cliente</h3>" +
+            "<p><strong>Cédula:</strong> " + cliente.cedula + "</p>" +
+            "<p><strong>Nombre:</strong> " + cliente.nombre + "</p>" +
+            "<p><strong>Apellido:</strong> " + cliente.apellido + "</p>" +
+            "<p><strong>Ingresos:</strong> " + cliente.ingresos + "</p>" +
+            "<p><strong>Egresos:</strong> " + cliente.egresos + "</p>";
 }
 }
