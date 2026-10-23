@@ -200,8 +200,15 @@ calcularCredito = function(){
   let textoResultado;
     if (aprobado){
         textoResultado = "APROBADO";
+
+        document.getElementById("resultadoCredito").className = "aprobado";     // NUEVA
+
+
     } else {
         textoResultado = "RECHAZADO";
+
+        document.getElementById("resultadoCredito").className = "rechazado";    // NUEVA
+
     }
 
     // Parte 5: mostrar en pantalla
