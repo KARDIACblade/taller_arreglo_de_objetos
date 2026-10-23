@@ -33,3 +33,48 @@ function recuperarTexto(idComponente){
         componente.src = rutaImagen;
     
     }
+
+
+
+    
+   // PARTE2-4: FUNCIONES DEL SIMULADOR ANTERIOR (reutilizadas)
+   
+
+function calcularDisponible(ingresos, egresos){
+    let disponible = ingresos - egresos;
+
+    if (disponible < 0){
+        disponible = 0;
+    }
+    return disponible;
+}
+
+function calcularCapacidadPago(montoDisponible){
+    let valorDisponible = montoDisponible * 0.3;
+    return valorDisponible;
+}
+
+function calcularInteresSimple(monto, tasa, plazoAnios){
+    let interesPagar = plazoAnios * monto * (tasa / 100);
+    return interesPagar;
+}
+
+function calcularTotalPagar(monto, interes){
+    let impuestos = 100;
+    let valorPagar = monto + interes + impuestos;
+    return valorPagar;
+}
+
+function calcularCuotaMensual(total, plazoAnios){
+    let meses = (plazoAnios * 12);
+    let cuotaMensual = total / meses;
+    return cuotaMensual;
+}
+
+function aprobarCredito(capacidadPago, cuotaMensual){
+    if (capacidadPago > cuotaMensual){
+        return true;
+    } else {
+        return false;
+    }
+}

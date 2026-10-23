@@ -151,9 +151,15 @@ buscarClienteCredito = function(){
     let cliente = buscarCliente(cedula);
 
     if (cliente == null){
+
+      clienteSeleccionado = null;
+
     mostrarTexto("datosClienteCredito", "Cliente no encontrado");
-    
+
     } else {
+
+      clienteSeleccionado = cliente;
+
         document.getElementById("datosClienteCredito").innerHTML =
             "<h3>Datos del Cliente</h3>" +
             "<p><strong>Cédula:</strong> " + cliente.cedula + "</p>" +
@@ -162,4 +168,37 @@ buscarClienteCredito = function(){
             "<p><strong>Ingresos:</strong> " + cliente.ingresos + "</p>" +
             "<p><strong>Egresos:</strong> " + cliente.egresos + "</p>";
 }
+}
+
+
+
+// calcular credito (Parte 4: reutiliza las funciones de utilitarios.js)
+calcularCredito = function(){
+
+    // Datos del cliente encontrado
+    let ingresos = clienteSeleccionado.ingresos;
+    let egresos = clienteSeleccionado.egresos;
+
+    // Datos que escribe el usuario
+    let monto = recuperarFloat("montoCredito");
+    let plazoAnios = recuperarInt("plazoCredito");
+
+    // Tasa configurada en Parámetros
+    let tasa = tasaInteres;
+
+    // Cálculos, en el orden del simulador anterior
+    let disponible = calcularDisponible(ingresos, egresos);
+    let capacidadPago = calcularCapacidadPago(disponible);
+
+    let interes = calcularInteresSimple(monto, tasa, plazoAnios);
+    let totalPagar = calcularTotalPagar(monto, interes);
+    let cuotaMensual = calcularCuotaMensual(totalPagar, plazoAnios);
+
+    let aprobado = aprobarCredito(capacidadPago, cuotaMensual);
+
+    // Solo para verificar los valores 
+    console.log("Capacidad de pago:", capacidadPago);
+    console.log("Total a pagar:", totalPagar);
+    console.log("Cuota mensual:", cuotaMensual);
+    console.log("Aprobado:", aprobado);
 }
